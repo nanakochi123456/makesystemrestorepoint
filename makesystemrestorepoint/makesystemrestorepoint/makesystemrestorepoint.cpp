@@ -201,7 +201,7 @@ INT64 tMakeSystemBegin(int iMode, int iSilent, LPTSTR szRestoreMsg) {
 
 	RstPt.dwEventType = BEGIN_SYSTEM_CHANGE;
 	RstPt.dwRestorePtType = iMode;
-	_tcscpy_s((wchar_t *)RstPt.szDescription, _tcslen(szRestoreMsg) + 1, szRestoreMsg);
+	_tcscpy_s((wchar_t *)RstPt.szDescription, MAX_LOADSTRING + 1, szRestoreMsg);
 
 	if (!SRSetRestorePoint(&RstPt, &MgrStat)) {
 		return -1;
